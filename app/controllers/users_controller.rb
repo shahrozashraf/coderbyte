@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @user.phone_numbers.build()
   end
 
   # GET /users/1/edit
@@ -70,6 +71,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :job_title, :birth_date)
+      params.require(:user).permit(:first_name, :last_name, :job_title, :birth_date, phone_numbers_attributes: [:id, :number, :country, :isMobile])
     end
 end

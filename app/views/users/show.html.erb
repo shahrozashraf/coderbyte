@@ -3,5 +3,12 @@
 <p>Last name: <%= @user.last_name %></p>
 <p>Job Title: <%= @user.job_title %></p>
 <p>Birth date: <%= @user.birth_date.strftime("%d-%b-%y") %></p>
+<p>Phone Numbers</p>
+<% if @user.phone_numbers.present? %>
+  <% @user.phone_numbers.each do |p_n| %>
+    <p>number: <%= p_n.try(:number) %></p>
+    <p>Country: <%= p_n.try(:country) %></p>
+  <% end %>
+<% end %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

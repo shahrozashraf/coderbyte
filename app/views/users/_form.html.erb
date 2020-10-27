@@ -21,5 +21,12 @@
     <%= f.text_field :job_title %>
     <p>Birth Date: </p>
     <%= f.text_field :birth_date %>
+    <%= f.fields_for :phone_numbers do |p_n| %>
+      <p>Phone Numbers</p>
+      <p>Country: </p>
+      <%= p_n.text_field :country %>
+      <p>Country: </p>
+      <%= p_n.text_field :number %>
+    <% end %>
   </div>
 <% end %>
